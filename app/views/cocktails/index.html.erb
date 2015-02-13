@@ -1,11 +1,18 @@
-<h2> In da cocktails</h2>
-
-<% @cocktails.each do |cocktail|%>
-<ol>
-  <li><%=link_to cocktail.name, cocktail_path(cocktail), class:'btn btn-danger'%></li>
-</ol>
-<% end %>
-
-<%= link_to "add your cocktail", new_cocktail_path %>
+<div class="card text-center">
+  <h2> In da cocktails</h2>
+</div>
+<div class="row">
+  <% @cocktails.each do |cocktail|%>
+  <ol>
+    <div class="card text-center">
+      <ul class="list-unstyled">
+    <li><%=link_to cocktail.name, cocktail_path(cocktail), class:'btn btn-danger'%></li>
+  </ol>
+  <% end %>
+  </ul>
+</div>
+<div class="card text-center">
+  <%= link_to "add your cocktail", new_cocktail_path, class:'btn-btn-primary'%>
+</div>
 
 
