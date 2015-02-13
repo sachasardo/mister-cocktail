@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Ingredient.destroy_all
-ingredients = Ingredient.create([{ name: 'ice' }, { name: 'lemon' }, { name: 'mint' }])
+ingredients = Ingredient.create([{ name: 'ice' }, { name: 'lemon' }, { name: 'mint' }, { name: 'water'}, { name: 'rhum'}])
 

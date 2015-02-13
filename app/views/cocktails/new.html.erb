@@ -1,6 +1,6 @@
-<h1>Salut doude ! Tu bois quoi ?</h1>
-
-<%= form_for(@cocktail) do |f| %>
+<h1>Add your cocktail</h1>
+<div class="form">
+<%= bootstrap_form_for(@cocktail, html: { multipart: true }) do |f| %>
   <% if @cocktail.errors.any? %>
     <div id="error_explanation">
       <ul>
@@ -9,10 +9,13 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-
+      <% end %>
   <%= f.text_field :name, class:"form-control"%>
-  <%= f.submit class: "btn btn-success"%>
+  <div>
+    <%= f.file_field :picture %>
+  </div>
+  <%= f.submit class: "btn btn-success new"%>
 
 <% end %>
 
+</div>

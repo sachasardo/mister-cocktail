@@ -2,9 +2,23 @@
 
 <div>
   <%= @cocktail.name %>
-  <% @cocktail.doses.each do |dose| %>
-  <%= dose.description%> - <%=dose.ingredient.name%>
-  <%= link_to "Delete coquetail", cocktail_dose_path(@cocktail, dose), method: :delete, class:'fa fa-trash'%>
-  <% end %>
+  <%= image_tag @cocktail.picture.url(:medium) %>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+    <li>
+      <%= dose.description %> - <%=dose.ingredient.name %>
+      <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: "Are you sure?" } do%>
+      <i class="fa fa-trash"></i>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+  <div><%= link_to "Back to list", cocktails_path, class:'btn btn-primary' %></div>
+  <div><%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class:'btn btn-primary'%></div>
+
+
+
+
+
+<!--  -->
 </div>
-<div><%= link_to "List cocktail", cocktails_path, class:'btn btn-success' %></div>

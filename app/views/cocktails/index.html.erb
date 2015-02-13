@@ -1,18 +1,30 @@
-<div class="card text-center">
+<div class="text-center">
   <h2> In da cocktails</h2>
 </div>
-<div class="row">
-  <% @cocktails.each do |cocktail|%>
-  <ol>
-    <div class="card text-center">
-      <ul class="list-unstyled">
-    <li><%=link_to cocktail.name, cocktail_path(cocktail), class:'btn btn-danger'%></li>
-  </ol>
-  <% end %>
-  </ul>
+<div class="text-center">
+  <%= link_to "add your cocktail", new_cocktail_path, class:'btn btn-primary'%>
 </div>
-<div class="card text-center">
-  <%= link_to "add your cocktail", new_cocktail_path, class:'btn-btn-primary'%>
-</div>
-
+  <div class="container">
+    <div class="row">
+    <% @cocktails.each do |cocktail|%>
+      <div class="col-xs-6">
+        <div class="card text-center">
+          <div class="list-unstyled">
+            <div class="image_cocktail">
+              <%= image_tag cocktail.picture.url(:medium) if cocktail.picture %>
+            </div>
+            <div>
+              <%=link_to cocktail.name, cocktail_path(cocktail), class:'btn btn-danger'%>
+            </div>
+            <div>
+              <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?"} do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
